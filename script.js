@@ -279,9 +279,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (useWhileMaterial) {
                     // Navbar Mode: Plain White ( Matte / Slightly Glossy )
                     node.material = new THREE.MeshStandardMaterial({
-                        color: 0xffffff,
-                        metalness: 0.1,
-                        roughness: 0.2,
+                        color: 0x80ffb3,
+                        metalness: 1,
+                        roughness: 0.0,
                         side: THREE.DoubleSide
                     });
                 } else {
@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!isMobile) {
                         // Desktop: Iridescent Mirror
                         node.material = new THREE.MeshPhysicalMaterial({
-                            color: 0xffffff,
+                            color: 0x80ffb3,
                             metalness: 1.0,
                             roughness: 0.0,
                             iridescence: 1.0,
@@ -301,9 +301,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         // Mobile: Standard Simple
                         node.material = new THREE.MeshStandardMaterial({
-                            color: 0xffffff,
-                            roughness: 0.2,
-                            metalness: 0.1,
+                            color: 0x80ffb3,
+                            roughness: 0,
+                            metalness: 1,
                             emissive: 0x111111,
                             side: THREE.DoubleSide
                         });
@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scene.add(ambientLight);
 
         const dirLight = new THREE.DirectionalLight(0xffffff, 2);
-        dirLight.position.set(2, 2, 5);
+        dirLight.position.set(2, 0, 5);
         scene.add(dirLight);
 
         // Store lights
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof model !== 'undefined' && model) {
             model.traverse((node) => {
                 if (node.isMesh && node.material) {
-                    node.material.color.setHex(theme === 'light' ? 0x111111 : 0xffffff);
+                    node.material.color.setHex(0x80ffb3);
                 }
             });
         }
@@ -431,11 +431,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Boost lights for chrome material (needs strong light to reflect)
         if (theme === 'light') {
-            if (ambient) ambient.intensity = 2.5;
-            if (directional) directional.intensity = 3.0;
+            if (ambient) ambient.intensity = 3.0; // More diffused
+            if (directional) directional.intensity = 2.0; // Less harsh direct
         } else {
-            if (ambient) ambient.intensity = 1.5;
-            if (directional) directional.intensity = 2.0;
+            if (ambient) ambient.intensity = 2.0; // More diffused
+            if (directional) directional.intensity = 1.0; // Less harsh direct
         }
     }
 
