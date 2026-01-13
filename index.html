@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leocatas - UX/UI Designer</title>
+    <link rel="icon" type="image/png" href="le-logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="loader">
+        <div class="glitch-wrapper">
+            <div class="glitch" data-text="loading...">loading...</div>
+        </div>
+    </div>
+
+    <div id="grid-container"></div>
+    <div id="canvas-container"></div>
+
+    <header>
+        <!-- Canvas/Model Placeholder in Nav (Left) - Empty initially, filled by 3D model on scroll via JS/CSS positioning -->
+        <div class="nav-logo-placeholder" style="width: 50px; height: 50px;"></div>
+
+        <div class="header-right-group">
+            <!-- Desktop Nav -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="#hero">home</a></li>
+                    <li><a href="#lavori">i miei lavori</a></li>
+                    <li><a href="#servizi">prezzi e servizi</a></li>
+                    <li><a href="#fasi">fasi di sviluppo</a></li>
+                    <li><a href="#contatti">contatti</a></li>
+                </ul>
+            </nav>
+
+            <!-- Hamburger Button (Mobile) -->
+            <button class="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="20"
+                        height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#hero" class="mobile-link">home</a></li>
+                <li><a href="#lavori" class="mobile-link">i miei lavori</a></li>
+                <li><a href="#servizi" class="mobile-link">prezzi e servizi</a></li>
+                <li><a href="#fasi" class="mobile-link">fasi di sviluppo</a></li>
+                <li><a href="#contatti" class="mobile-link">contatti</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <div class="designer-badge">
+                    <img src="avatar.png" alt="Profile Avatar" class="avatar">
+                    <span class="designer-label">UX/UI designer</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="about-container">
+                <span class="about-label">Su di me</span>
+                <div class="about-content">
+                    <h2 class="about-headline">ASPIRANTE WEB DESIGNER CON FOCUS SU UI/UX. STUDIO ALL'ACCADEMIA DI BELLE
+                        ARTI DI CATANIA E VOGLIO CREARE ESPERIENZE DIGITALI INTUITIVE, FUNZIONALI E CURATE.</h2>
+                    <div class="about-description">
+                        <p>-mi chiamo mattia e sono un aspirante web designer con un focus specifico sull'ui/ux. a 22
+                            anni, sono nel pieno del mio percorso di studi presso l'accademia di belle arti di catania,
+                            dove ho coltivato una profonda comprensione dell'estetica, della composizione e della teoria
+                            del colore.</p>
+                        <p>sono agli sgoccioli: manca pochissimo al conseguimento della laurea! questo traguardo segna
+                            l'inizio della mia vera ambizione: applicare la mia formazione artistica per creare
+                            esperienze digitali intuitive, funzionali e visivamente accattivanti.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lavori" style="min-height: 100vh; padding: 100px 20px; position: relative; z-index: 20;">
+            <h2 class="giant-name" style="font-size: 10vw; margin-bottom: 2rem;">lavori</h2>
+            <p>Qui ci saranno i lavori del portfolio.</p>
+        </section>
+
+        <section id="servizi" style="min-height: 100vh; padding: 100px 20px; position: relative; z-index: 20;">
+            <h2 class="giant-name" style="font-size: 10vw; margin-bottom: 2rem;">servizi</h2>
+            <p>Qui ci saranno i prezzi e i servizi.</p>
+        </section>
+
+        <section id="fasi" style="min-height: 100vh; padding: 100px 20px; position: relative; z-index: 20;">
+            <h2 class="giant-name" style="font-size: 10vw; margin-bottom: 2rem;">fasi</h2>
+            <p>Qui ci saranno le fasi di sviluppo.</p>
+        </section>
+
+        <section id="contatti" style="min-height: 100vh; padding: 100px 20px; position: relative; z-index: 20;">
+            <h2 class="giant-name" style="font-size: 10vw; margin-bottom: 2rem;">contatti</h2>
+            <p>Qui ci saranno i contatti.</p>
+        </section>
+    </main>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

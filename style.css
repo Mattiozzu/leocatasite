@@ -1,0 +1,580 @@
+:root {
+    /* Default Dark Mode */
+    --bg-color: #0c0c0c;
+    --text-color: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888888;
+    --accent-color: #2eeb7d;
+    --accent-glow-weak: rgba(46, 235, 125, 0.3);
+    --accent-shadow-weak: rgba(46, 235, 125, 0.2);
+    --glitch-1: #00ffff;
+    --glitch-2: #ff00ff;
+    --btn-border: #ffffff;
+    --btn-bg-hover: #ffffff;
+    --btn-text-hover: #000000;
+    --nav-opacity: 0.9;
+    --nav-hover: #2eeb7d;
+}
+
+[data-theme="light"] {
+    /* Light Mode - Premium & Visible */
+    --bg-color: #ced8f3;
+    /* Cool gray 50 */
+    --text-color: #111827;
+    /* Gray 900 */
+    --text-secondary: #4b5563;
+    /* Gray 600 */
+    --text-muted: #6b7280;
+    /* Gray 500 */
+    --accent-color: #0A2844;
+    /* Deep Blue requested by user */
+    --accent-glow-weak: rgba(10, 40, 67, 0.4);
+    --accent-shadow-weak: rgba(10, 40, 67, 0.2);
+    --glitch-1: #2563eb;
+    /* Blue 600 */
+    --glitch-2: #db2777;
+    /* Pink 600 */
+    --btn-border: #111827;
+    --btn-bg-hover: #111827;
+    --btn-text-hover: #ffffff;
+    --nav-opacity: 1;
+    --nav-hover: #0A2844;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease-out, visibility 0.8s;
+}
+
+
+.glitch-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.glitch {
+    position: relative;
+    font-size: 4rem;
+
+    font-weight: 800;
+    color: var(--accent-color);
+
+    letter-spacing: -0.05em;
+    z-index: 1;
+}
+
+.glitch:before,
+.glitch:after {
+    display: block;
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+}
+
+.glitch:before {
+    animation: glitch-it 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: var(--glitch-1);
+    z-index: -1;
+}
+
+.glitch:after {
+    animation: glitch-it 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+    color: var(--glitch-2);
+    z-index: -2;
+}
+
+@keyframes glitch-it {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+.loader-video {
+    width: 600px;
+    height: auto;
+    max-width: 90%;
+}
+
+.loader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+#grid-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 74px);
+    grid-template-rows: repeat(var(--rows), 74px);
+    pointer-events: none;
+    position: fixed;
+    transition: opacity 0.8s ease-out;
+}
+
+.grid-hidden {
+    opacity: 0;
+}
+
+.grid-cell {
+    width: 74px;
+    height: 74px;
+    border: none;
+    padding: 0;
+    display: block;
+    pointer-events: all;
+}
+
+#canvas-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 60;
+    /* Above grid (1), below header/main (10) - UPDATED to 60 */
+    pointer-events: none;
+    /* Let clicks pass through, we use window listener for hover */
+    transition: opacity 1s ease-out;
+    opacity: 0;
+    /* Starts hidden, revealed by JS */
+}
+
+.canvas-visible {
+    opacity: 1 !important;
+    /* Force visibility when class added */
+}
+
+.triangle {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width: 1;
+    transition: stroke 1.5s ease-out, filter 1.5s ease-out;
+    cursor: crosshair;
+}
+
+.triangle:hover {
+    stroke: var(--accent-color);
+    filter: drop-shadow(0 0 5px var(--accent-color));
+    transition: stroke 0s, filter 0s;
+    z-index: 10;
+}
+
+.triangle.glow-weak {
+    stroke: var(--accent-glow-weak);
+    filter: drop-shadow(0 0 2px var(--accent-shadow-weak));
+    transition: stroke 0s, filter 0s;
+    z-index: 5;
+}
+
+header,
+main {
+    z-index: 10;
+    pointer-events: none;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+    /* Ensure it stays above content */
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Align logo placeholder with top of menu list */
+    padding: 2rem 3rem;
+    font-weight: 500;
+}
+
+.header-right-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    pointer-events: auto;
+}
+
+main {
+    pointer-events: none;
+}
+
+.designer-badge {
+    pointer-events: auto;
+}
+
+nav ul {
+    list-style: none;
+    text-align: right;
+    pointer-events: auto;
+}
+
+nav ul li {
+    margin-bottom: 0.2rem;
+}
+
+nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    opacity: var(--nav-opacity);
+    transition: opacity 0.2s, color 0.2s;
+}
+
+nav ul li a:hover {
+    opacity: 1;
+    color: var(--nav-hover);
+}
+
+.header-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    pointer-events: auto;
+}
+
+.cta-button {
+    border: 1px solid var(--btn-border);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text-color);
+    transition: background 0.2s, color 0.2s;
+    pointer-events: auto;
+    display: none;
+    /* Hidden as per request to remove INST */
+}
+
+/* =========================================
+   HAMBURGER & MOBILE MENU STYLES
+   ========================================= */
+
+/* Default State (Desktop) */
+.hamburger {
+    display: none;
+    /* Hidden on desktop */
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 200;
+    padding: 10px;
+    pointer-events: auto;
+    /* Critical fix: re-enable clicks since header has pointer-events: none */
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg-color);
+    z-index: 100;
+
+    display: flex;
+    /* Flex to center content */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transform: translateX(-100%);
+    /* Start hidden (left) */
+    transition: transform 0.4s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.4s cubic-bezier(0.85, 0, 0.15, 1);
+    /* Apple-like slick ease for both */
+
+    pointer-events: none;
+    /* Don't block while hidden */
+    opacity: 0;
+    /* Fade out for cleanliness */
+}
+
+/* Active State (Open) */
+.mobile-menu.active {
+    transform: translateX(0);
+    /* Slide in */
+    pointer-events: auto;
+    opacity: 1;
+}
+
+/* Hamburger Animation (CSS) */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Active State (Open) */
+.mobile-menu.active {
+    transform: translateX(0);
+    /* Slide in */
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.mobile-menu ul {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mobile-menu a {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: lowercase;
+    transition: opacity 0.3s;
+}
+
+.mobile-menu a:active {
+    opacity: 0.5;
+}
+
+/* Mobile Breakpoint (< 768px) */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none !important;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+.cta-button:hover {
+    background: var(--btn-bg-hover);
+    color: var(--btn-text-hover);
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    transition: color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-color);
+}
+
+main {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+}
+
+#hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-content {
+    width: 100%;
+    position: relative;
+    pointer-events: auto;
+}
+
+.designer-badge {
+    position: absolute;
+    top: -80px;
+    left: 10%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    z-index: 2;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #333;
+}
+
+.designer-label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.giant-name {
+    font-size: 24vw;
+    font-weight: 800;
+    color: var(--accent-color);
+    line-height: 0.75;
+    letter-spacing: -0.05em;
+    text-align: left;
+    padding-left: 2vw;
+    width: 100%;
+    margin-bottom: 12vw;
+    pointer-events: none;
+    display: block;
+}
+
+#about {
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    padding: 2rem 0;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    z-index: 20;
+    transition: background-color 0.3s ease;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 2rem;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0 0 0 2vw;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: auto;
+}
+
+.about-visible .about-container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-label {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+    font-weight: 400;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.about-headline {
+    font-size: 32px;
+    line-height: 1.1;
+    font-weight: 500;
+    text-transform: uppercase;
+    max-width: 100%;
+    color: var(--text-color);
+}
+
+@media (min-width: 1024px) {
+    .about-headline {
+        font-size: 44px;
+    }
+}
+
+.about-description {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-self: flex-end;
+    margin-right: 20%;
+    max-width: 500px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    text-transform: lowercase;
+}
+
+.about-description p:hover {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
