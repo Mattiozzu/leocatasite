@@ -268,6 +268,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateColorOnScroll() {
         if (!model) return;
         const isMobile = window.innerWidth < 768;
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        const modelColor = currentTheme === 'light' ? 0x00F2FF : 0xa6ff00;
 
         // If Scrolled -> Force White Simple Material
         // If Not Scrolled -> Use Hero Material (Iridescent on desktop)
@@ -279,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (useWhileMaterial) {
                     // Navbar Mode: Plain White ( Matte / Slightly Glossy )
                     node.material = new THREE.MeshStandardMaterial({
-                        color: 0x80ffb3,
+                        color: modelColor,
                         metalness: 1,
                         roughness: 0.0,
                         side: THREE.DoubleSide
@@ -289,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!isMobile) {
                         // Desktop: Iridescent Mirror
                         node.material = new THREE.MeshPhysicalMaterial({
-                            color: 0x80ffb3,
+                            color: modelColor,
                             metalness: 1.0,
                             roughness: 0.0,
                             iridescence: 1.0,
@@ -301,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else {
                         // Mobile: Standard Simple
                         node.material = new THREE.MeshStandardMaterial({
-                            color: 0x80ffb3,
+                            color: modelColor,
                             roughness: 0,
                             metalness: 1,
                             emissive: 0x111111,
@@ -315,7 +317,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // If not white mode, we might need to update lights for the theme.
         // If white mode, lights should be sufficient.
-        const currentTheme = localStorage.getItem('theme') || 'dark';
         updateLights(currentTheme);
     }
 
@@ -417,11 +418,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateLights(theme) {
         if (!scene) return;
 
+        const modelColor = theme === 'light' ? 0x00F2FF : 0xa6ff00;
+
         // Update Model Color (Dark Mode = White, Light Mode = Dark)
         if (typeof model !== 'undefined' && model) {
             model.traverse((node) => {
                 if (node.isMesh && node.material) {
-                    node.material.color.setHex(0x80ffb3);
+                    node.material.color.setHex(modelColor);
                 }
             });
         }
