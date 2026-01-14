@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Hero Scale: Requested to be "Giant" like the previous text (24vw).
         // A scale of ~2.2 should cover a good chunk of the screen.
         const heroScaleVal = isMobile ? 0.9 : 2.2;
-        const navScaleVal = isMobile ? 0.12 : 0.15; // Small for navbar
+        const navScaleVal = isMobile ? 0.14 : 0.25; // Small for navbar
 
         if (!isScrolled) {
             // Hero Mode
