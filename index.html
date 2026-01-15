@@ -39,10 +39,10 @@
             <nav class="desktop-nav">
                 <ul>
                     <li><a href="#hero">home</a></li>
-                    <li><a href="#lavori">i miei lavori</a></li>
-                    <li><a href="#servizi">prezzi e servizi</a></li>
-                    <li><a href="#fasi">fasi di sviluppo</a></li>
-                    <li><a href="#contatti">contatti</a></li>
+                    <li><a href="#lavori">works</a></li>
+                    <li><a href="#servizi">services</a></li>
+                    <li><a href="#fasi">dev phases</a></li>
+                    <li><a href="#contatti">contacts</a></li>
                 </ul>
             </nav>
 
@@ -80,10 +80,10 @@
         <div class="mobile-menu">
             <ul>
                 <li><a href="#hero" class="mobile-link">home</a></li>
-                <li><a href="#lavori" class="mobile-link">i miei lavori</a></li>
-                <li><a href="#servizi" class="mobile-link">prezzi e servizi</a></li>
-                <li><a href="#fasi" class="mobile-link">fasi di sviluppo</a></li>
-                <li><a href="#contatti" class="mobile-link">contatti</a></li>
+                <li><a href="#lavori" class="mobile-link">works</a></li>
+                <li><a href="#servizi" class="mobile-link">services</a></li>
+                <li><a href="#fasi" class="mobile-link">dev phases</a></li>
+                <li><a href="#contatti" class="mobile-link">contacts</a></li>
             </ul>
         </div>
     </header>
@@ -117,28 +117,790 @@
             </div>
         </section>
 
-        <section id="lavori" style="min-height: 100vh; padding: 100px 20px; position: relative; z-index: 20;">
-            <h2 class="giant-name" style="font-size: 10vw; margin-bottom: 2rem;">lavori</h2>
-            <p>Qui ci saranno i lavori del portfolio.</p>
+        <section id="lavori" class="horizontal-section">
+            <div class="sticky-wrapper">
+                <div class="works-bg-title">works</div>
+                <div class="scroll-track">
+                    <!-- Project 1 -->
+                    <div class="gallery-item" onclick="openGallery(this)"
+                        data-gallery='["./Progetti/Museo del costume/Completo-10.png", "./Progetti/Museo del costume/Manifesto e locandina-32.png", "./Progetti/Museo del costume/Biglietto da visita-31.png"]'
+                        data-desc="Museo del costume - Scicli">
+                        <img src="./Progetti/Museo del costume/Completo-10.png" class="gallery-img"
+                            alt="Museo del costume">
+                        <div class="gallery-info">
+                            <div class="gallery-title">Museo del Costume</div>
+                            <div class="gallery-desc">BRAND IDENTITY / PRINT</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="gallery-item" onclick="openGallery(this)" data-gallery='["./Progetti/così.png"]'
+                        data-desc="Confusione.">
+                        <img src="./Progetti/così.png" class="gallery-img" alt="Progetto Così">
+                        <div class="gallery-info">
+                            <div class="gallery-title">Confusione.</div>
+                            <div class="gallery-desc">EDITORIAL / LAYOUT</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="gallery-item" onclick="openGallery(this)"
+                        data-gallery='["./Progetti/Senza titolo-1.jpg"]' data-desc="Manifesto fine della malattia">
+                        <img src="./Progetti/Senza titolo-1.jpg" class="gallery-img" alt="Manifesto">
+                        <div class="gallery-info">
+                            <div class="gallery-title">Fine Malattia</div>
+                            <div class="gallery-desc">POSTER DESIGN</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="gallery-item" onclick="openGallery(this)"
+                        data-gallery='["./Progetti/Senza titolo-2.jpg"]' data-desc="Manifesto minimalista">
+                        <img src="./Progetti/Senza titolo-2.jpg" class="gallery-img" alt="Minimalista">
+                        <div class="gallery-info">
+                            <div class="gallery-title">Minimalista</div>
+                            <div class="gallery-desc">TYPOGRAPHY</div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="gallery-item" onclick="openGallery(this)" data-gallery='["./Progetti/shoah 2.jpg"]'
+                        data-desc="Shoah">
+                        <img src="./Progetti/shoah 2.jpg" class="gallery-img" alt="Shoah">
+                        <div class="gallery-info">
+                            <div class="gallery-title">Shoah</div>
+                            <div class="gallery-desc">SOCIAL IMPACT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> <!-- Lightbox moved to bottom of body -->
+
+        <section id="servizi" class="services-section">
+            <div class="services-sticky-wrapper">
+                <div class="services-grid">
+                    <!-- Card 1: Design Only -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <svg class="service-icon" viewBox="0 0 512 512" fill="currentColor">
+                                <!-- Circle Border (scaled for 512 viewBox) -->
+                                <circle cx="256" cy="256" r="230" stroke="currentColor" stroke-width="30" fill="none" />
+                                <!-- User's Path -->
+                                <path
+                                    d="M331,290.5c-2.1,8.3-7.4,15.2-15.8,17.7l-162.1,48.7,48.1-160.4c2.4-8.5,8-14.2,16.2-17l52.7-13.2,29.1-29.1c3.4-3.4,8.4-3.8,12.1-.3l61.9,61.9c2.7,2.9,3.6,8,.6,11l-30,30.1-12.7,50.6ZM179.3,332.4l130.8-38.9c2.7-1.3,4.6-3.2,5.6-5.8l12.3-49.4-56.3-56.2-49.1,12.2c-2.9,1-5.1,3-6.3,6.1l-38.8,130.5,65.3-79.2c.5-9.3,7.5-15.9,16.2-15.7s15.4,7.3,15.2,15.9-6.7,14.8-15.7,15.3l-79.1,65.2Z" />
+                            </svg>
+                            <h3 class="service-title">DESIGN ONLY</h3>
+                        </div>
+                        <div class="service-footer">
+                            <div class="service-tags">
+                                <span class="tag">FIGMA</span>
+                                <span class="tag">PS</span>
+                                <span class="tag">AI</span>
+                                <span class="tag">ID</span>
+                            </div>
+                            <div class="service-action-wrapper">
+                                <span id="req-text-1" class="service-req-text">Su richiesta</span>
+                                <div class="service-action" onclick="toggleRequestText('req-text-1')">
+                                    <svg width="24" height="24" viewBox="0 0 1024 1024" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M951.87 253.86c0-82.18-110.05-144.14-256-144.14s-256 61.96-256 144.14c0 0.73 0.16 1.42 0.18 2.14h-0.18v109.71h73.14v-9.06c45.77 25.81 109.81 41.33 182.86 41.33 67.39 0 126.93-13.33 171.71-35.64 6.94 7.18 11.15 14.32 11.15 20.58 0 28.25-72.93 70.98-182.86 70.98h-73.12v73.14h73.12c67.4 0 126.96-13.33 171.74-35.65 6.95 7.17 11.11 14.31 11.11 20.6 0 28.27-72.93 71-182.86 71l-25.89 0.12c-15.91 0.14-31.32 0.29-46.34-0.11l-1.79 73.11c8.04 0.2 16.18 0.27 24.48 0.27 7.93 0 16-0.05 24.2-0.12l25.34-0.12c67.44 0 127.02-13.35 171.81-35.69 6.97 7.23 11.04 14.41 11.04 20.62 0 28.27-72.93 71-182.86 71h-73.12v73.14h73.12c145.95 0 256-61.96 256-144.14 0-0.68-0.09-1.45-0.11-2.14h0.11V256h-0.18c0.03-0.72 0.2-1.42 0.2-2.14z m-438.86 0c0-28.27 72.93-71 182.86-71s182.86 42.73 182.86 71c0 28.25-72.93 70.98-182.86 70.98s-182.86-42.73-182.86-70.98z" />
+                                        <path
+                                            d="M330.15 365.71c-145.95 0-256 61.96-256 144.14 0 0.73 0.16 1.42 0.18 2.14h-0.18v256c0 82.18 110.05 144.14 256 144.14s256-61.96 256-144.14V512h-0.18c0.02-0.72 0.18-1.42 0.18-2.14 0-82.18-110.05-144.15-256-144.15zM147.29 638.93c0-6.32 4.13-13.45 11.08-20.62 44.79 22.33 104.36 35.67 171.78 35.67 67.39 0 126.93-13.33 171.71-35.64 6.94 7.18 11.15 14.32 11.15 20.58 0 28.25-72.93 70.98-182.86 70.98s-182.86-42.72-182.86-70.97z m182.86-200.07c109.93 0 182.86 42.73 182.86 71 0 28.25-72.93 70.98-182.86 70.98s-182.86-42.73-182.86-70.98c0-28.27 72.93-71 182.86-71z m0 400.14c-109.93 0-182.86-42.73-182.86-71 0-6.29 4.17-13.43 11.11-20.6 44.79 22.32 104.34 35.66 171.75 35.66 67.4 0 126.96-13.33 171.74-35.65 6.95 7.17 11.11 14.31 11.11 20.6 0.01 28.26-72.92 70.99-182.85 70.99z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Web & Mobile -->
+                    <div class="service-card">
+                        <div class="service-header">
+                            <svg class="service-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                            </svg>
+                            <h3 class="service-title">SITE WEB E<br>MOBILE APP</h3>
+                        </div>
+                        <div class="service-footer">
+                            <div class="service-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">JS</span>
+                            </div>
+                            <div class="service-action-wrapper">
+                                <span id="req-text-2" class="service-req-text">Su richiesta</span>
+                                <div class="service-action" onclick="toggleRequestText('req-text-2')">
+                                    <svg width="24" height="24" viewBox="0 0 1024 1024" fill="currentColor"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M951.87 253.86c0-82.18-110.05-144.14-256-144.14s-256 61.96-256 144.14c0 0.73 0.16 1.42 0.18 2.14h-0.18v109.71h73.14v-9.06c45.77 25.81 109.81 41.33 182.86 41.33 67.39 0 126.93-13.33 171.71-35.64 6.94 7.18 11.15 14.32 11.15 20.58 0 28.25-72.93 70.98-182.86 70.98h-73.12v73.14h73.12c67.4 0 126.96-13.33 171.74-35.65 6.95 7.17 11.11 14.31 11.11 20.6 0 28.27-72.93 71-182.86 71l-25.89 0.12c-15.91 0.14-31.32 0.29-46.34-0.11l-1.79 73.11c8.04 0.2 16.18 0.27 24.48 0.27 7.93 0 16-0.05 24.2-0.12l25.34-0.12c67.44 0 127.02-13.35 171.81-35.69 6.97 7.23 11.04 14.41 11.04 20.62 0 28.27-72.93 71-182.86 71h-73.12v73.14h73.12c145.95 0 256-61.96 256-144.14 0-0.68-0.09-1.45-0.11-2.14h0.11V256h-0.18c0.03-0.72 0.2-1.42 0.2-2.14z m-438.86 0c0-28.27 72.93-71 182.86-71s182.86 42.73 182.86 71c0 28.25-72.93 70.98-182.86 70.98s-182.86-42.73-182.86-70.98z" />
+                                        <path
+                                            d="M330.15 365.71c-145.95 0-256 61.96-256 144.14 0 0.73 0.16 1.42 0.18 2.14h-0.18v256c0 82.18 110.05 144.14 256 144.14s256-61.96 256-144.14V512h-0.18c0.02-0.72 0.18-1.42 0.18-2.14 0-82.18-110.05-144.15-256-144.15zM147.29 638.93c0-6.32 4.13-13.45 11.08-20.62 44.79 22.33 104.36 35.67 171.78 35.67 67.39 0 126.93-13.33 171.71-35.64 6.94 7.18 11.15 14.32 11.15 20.58 0 28.25-72.93 70.98-182.86 70.98s-182.86-42.72-182.86-70.97z m182.86-200.07c109.93 0 182.86 42.73 182.86 71 0 28.25-72.93 70.98-182.86 70.98s-182.86-42.73-182.86-70.98c0-28.27 72.93-71 182.86-71z m0 400.14c-109.93 0-182.86-42.73-182.86-71 0-6.29 4.17-13.43 11.11-20.6 44.79 22.32 104.34 35.66 171.75 35.66 67.4 0 126.96-13.33 171.74-35.65 6.95 7.17 11.11 14.31 11.11 20.6 0.01 28.26-72.92 70.99-182.85 70.99z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Title Absolute Centered Behind -->
+                <h2 class="giant-name bg-center-title">services</h2>
+            </div>
         </section>
 
-        <section id="servizi" style="min-height: 100vh; padding: 100px 20px; position: relative; z-index: 20;">
-            <h2 class="giant-name" style="font-size: 10vw; margin-bottom: 2rem;">servizi</h2>
-            <p>Qui ci saranno i prezzi e i servizi.</p>
+        <section id="fasi" class="phases-horizontal-section">
+            <div class="phases-sticky-wrapper">
+                <div class="phases-bg-title">DEV PHASES</div>
+                <div class="phases-track">
+                    <!-- Phase 01 -->
+                    <div class="phase-card">
+                        <div class="phase-card-num">01</div>
+                        <div class="phase-card-content">
+                            <h3>DISCOVERY</h3>
+                            <p>Analisi approfondita degli obiettivi, studio dei competitor e definizione della
+                                strategia
+                                digitale per un progetto solido.</p>
+                        </div>
+                    </div>
+                    <!-- Phase 02 -->
+                    <div class="phase-card">
+                        <div class="phase-card-num">02</div>
+                        <div class="phase-card-content">
+                            <h3>DESIGN</h3>
+                            <p>Creazione di wireframe e UI design ad alto impatto visivo, focalizzati sulla User
+                                Experience e sull'identità del brand.</p>
+                        </div>
+                    </div>
+                    <!-- Phase 03 -->
+                    <div class="phase-card">
+                        <div class="phase-card-num">03</div>
+                        <div class="phase-card-content">
+                            <h3>DEVELOPMENT</h3>
+                            <p>Sviluppo del codice pulito e performante, con animazioni fluide e interazioni
+                                avanzate
+                                per un sito web moderno.</p>
+                        </div>
+                    </div>
+                    <!-- Phase 04 -->
+                    <div class="phase-card">
+                        <div class="phase-card-num">04</div>
+                        <div class="phase-card-content">
+                            <h3>LAUNCH</h3>
+                            <p>Testing rigoroso, ottimizzazione SEO e messa online del progetto per garantire il
+                                massimo
+                                impatto immediato.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="fasi" style="min-height: 100vh; padding: 100px 20px; position: relative; z-index: 20;">
-            <h2 class="giant-name" style="font-size: 10vw; margin-bottom: 2rem;">fasi</h2>
-            <p>Qui ci saranno le fasi di sviluppo.</p>
-        </section>
+        <section id="contatti" class="contacts-section">
+            <h2 class="giant-name contacts-title">Contatti</h2>
 
-        <section id="contatti" style="min-height: 100vh; padding: 100px 20px; position: relative; z-index: 20;">
-            <h2 class="giant-name" style="font-size: 10vw; margin-bottom: 2rem;">contatti</h2>
-            <p>Qui ci saranno i contatti.</p>
+            <div class="contacts-container">
+                <!-- Contact Info Card -->
+                <div class="contact-info-card">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <a href="mailto:mattialeocata.ml@gmail.com">mattialeocata.ml@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Catania, Italia</span>
+                    </div>
+                </div>
+
+                <!-- Booking Card -->
+                <div class="booking-card">
+                    <h3>Prenota un Appuntamento</h3>
+                    <p class="booking-subtitle">Disponibilità: Lun-Ven, 9:00-12:30 / 16:00-18:30</p>
+
+                    <button class="booking-trigger" id="openBooking">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        Scegli Data e Ora
+                    </button>
+                </div>
+            </div>
+
+            <!-- Booking Modal -->
+            <div class="booking-modal" id="bookingModal">
+                <div class="booking-modal-content">
+                    <button class="booking-close" id="closeBooking">&times;</button>
+
+                    <h2>Prenota Appuntamento</h2>
+
+                    <div class="booking-steps">
+                        <!-- Step 1: Month Selection -->
+                        <div class="booking-step active" id="step1">
+                            <h3>Seleziona il Mese</h3>
+                            <div class="month-grid" id="monthGrid"></div>
+                        </div>
+
+                        <!-- Step 2: Day Selection -->
+                        <div class="booking-step" id="step2">
+                            <h3>Seleziona il Giorno</h3>
+                            <div class="day-grid" id="dayGrid"></div>
+                        </div>
+
+                        <!-- Step 3: User Info -->
+                        <div class="booking-step" id="step3">
+                            <h3>I Tuoi Dati</h3>
+                            <div class="booking-form">
+                                <div class="form-group">
+                                    <label for="userName">Nome e Cognome *</label>
+                                    <input type="text" id="userName" class="form-input" placeholder="Mario Rossi"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userEmail">Email *</label>
+                                    <input type="email" id="userEmail" class="form-input"
+                                        placeholder="mario@example.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="userPhone">Telefono (opzionale)</label>
+                                    <input type="tel" id="userPhone" class="form-input" placeholder="+39 123 456 7890">
+                                </div>
+                                <div class="form-group">
+                                    <label for="userNotes">Note (opzionale)</label>
+                                    <textarea id="userNotes" class="form-textarea"
+                                        placeholder="Eventuali richieste particolari..." rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Time Selection -->
+                        <div class="booking-step" id="step4">
+                            <h3>Seleziona l'Orario</h3>
+                            <div class="time-slots" id="timeSlots"></div>
+                        </div>
+
+                        <!-- Step 5: Confirmation -->
+                        <div class="booking-step" id="step5">
+                            <div class="booking-confirmation">
+                                <svg class="success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                                <h3>Richiesta Ricevuta!</h3>
+                                <div class="booking-summary" id="bookingSummary"></div>
+                                <p class="booking-note">Ti contatterò via email per confermare l'appuntamento.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="booking-navigation">
+                        <button class="btn-secondary" id="prevStep" style="display: none;">Indietro</button>
+                        <button class="btn-primary" id="nextStep" disabled>Avanti</button>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <script type="module" src="script.js"></script>
+
+    <!-- Lightbox Script (Separate from 3D) -->
+    <script>
+        // Global function for onclick
+        window.slideInterval = null;
+
+        window.openGallery = function (item) {
+            const lightbox = document.getElementById('lightbox');
+            const descEl = document.querySelector('.lightbox-desc');
+
+            // Get Gallery Data
+            let galleryData = [];
+            const rawData = item.getAttribute('data-gallery');
+            if (rawData) {
+                try {
+                    galleryData = JSON.parse(rawData);
+                } catch (err) {
+                    console.error('JSON Parse Error', err);
+                }
+            }
+
+            // Get Description
+            const description = item.getAttribute('data-desc') || '';
+            if (descEl) descEl.textContent = description;
+
+            // Fallback
+            if (galleryData.length === 0) {
+                const innerImg = item.querySelector('img');
+                if (innerImg) galleryData = [innerImg.getAttribute('src') || innerImg.src];
+            }
+
+            if (galleryData.length > 0) {
+                window.currentGallery = galleryData;
+                window.currentIndex = 0;
+
+                updateLightboxContent();
+                lightbox.style.display = 'flex';
+                void lightbox.offsetWidth; // Force Reflow
+                lightbox.classList.add('active');
+
+                // Start Auto-Play
+                startCarousel();
+            } else {
+                alert('No images found to display.');
+            }
+        };
+
+        function startCarousel() {
+            stopCarousel();
+            window.slideInterval = setInterval(() => {
+                if (window.currentGallery && window.currentGallery.length > 0) {
+                    window.currentIndex = (window.currentIndex + 1) % window.currentGallery.length;
+                    updateLightboxContent();
+                }
+            }, 3000); // 3 seconds
+        }
+
+        function stopCarousel() {
+            if (window.slideInterval) clearInterval(window.slideInterval);
+        }
+
+        function resetCarousel() {
+            stopCarousel();
+            startCarousel();
+        }
+
+        // Helper
+        function updateLightboxContent() {
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCounter = document.querySelector('.lightbox-counter');
+
+            lightboxImg.style.opacity = 0;
+            setTimeout(() => {
+                if (window.currentGallery && window.currentGallery[window.currentIndex]) {
+                    lightboxImg.src = window.currentGallery[window.currentIndex];
+                }
+                lightboxImg.style.opacity = 1;
+            }, 300); // Slower fade for smoothness
+
+            if (lightboxCounter) {
+                lightboxCounter.textContent = `${window.currentIndex + 1} / ${window.currentGallery.length}`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const closeBtn = document.querySelector('.lightbox-close');
+            const prevBtn = document.querySelector('.lightbox-prev');
+            const nextBtn = document.querySelector('.lightbox-next');
+
+            function closeLightbox() {
+                stopCarousel();
+                lightbox.classList.remove('active');
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    const img = document.getElementById('lightbox-img');
+                    if (img) img.src = '';
+                }, 300);
+            }
+
+            if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    if (e.target === lightbox) closeLightbox();
+                });
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    resetCarousel();
+                    if (window.currentGallery && window.currentGallery.length > 0) {
+                        window.currentIndex = (window.currentIndex - 1 + window.currentGallery.length) % window.currentGallery.length;
+                        updateLightboxContent();
+                    }
+                });
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    resetCarousel();
+                    if (window.currentGallery && window.currentGallery.length > 0) {
+                        window.currentIndex = (window.currentIndex + 1) % window.currentGallery.length;
+                        updateLightboxContent();
+                    }
+                });
+            }
+
+            if (lightbox && lightbox.classList.contains('active')) {
+                if (e.key === 'Escape') closeLightbox();
+                if (window.currentGallery) {
+                    if (e.key === 'ArrowLeft') {
+                        resetCarousel();
+                        window.currentIndex = (window.currentIndex - 1 + window.currentGallery.length) % window.currentGallery.length;
+                        updateLightboxContent();
+                    }
+                    if (e.key === 'ArrowRight') {
+                        resetCarousel();
+                        window.currentIndex = (window.currentIndex + 1) % window.currentGallery.length;
+                        updateLightboxContent();
+                    }
+                }
+            }
+            // Reveal Animation for Giant Name & Cards (General)
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    } else {
+                        // Reset animation when element leaves viewport so it replays
+                        entry.target.classList.remove('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const giantNames = document.querySelectorAll('.giant-name');
+            giantNames.forEach(el => observer.observe(el));
+
+            // Service cards now use scroll-driven animation below
+
+
+
+
+            // --- SCROLL-PROGRESS SERVICE CARDS ANIMATION ---
+            const servicesSection = document.getElementById('servizi');
+            const serviceCardsArray = Array.from(document.querySelectorAll('.service-card'));
+            const servicesTitle = document.querySelector('.services-section .bg-center-title');
+
+            function updateServicesCards() {
+                if (!servicesSection || serviceCardsArray.length === 0) return;
+
+                const sectionTop = servicesSection.offsetTop;
+                const sectionHeight = servicesSection.offsetHeight;
+                const scrollY = window.scrollY;
+                const windowHeight = window.innerHeight;
+
+                // Calculate scroll progress through the section (0 to 1)
+                const scrollProgress = Math.max(0, Math.min(1,
+                    (scrollY - sectionTop) / (sectionHeight - windowHeight)
+                ));
+
+                // Title appears first (0-0.2 progress)
+                if (servicesTitle) {
+                    if (scrollProgress >= 0.1) {
+                        servicesTitle.classList.add('visible');
+                    } else {
+                        servicesTitle.classList.remove('visible');
+                    }
+                }
+
+                // Card 1: 0.3-0.5 progress
+                // Card 2: 0.6-0.8 progress
+                const cardThresholds = [0.35, 0.65];
+
+                serviceCardsArray.forEach((card, index) => {
+                    if (scrollProgress >= cardThresholds[index]) {
+                        if (!card.classList.contains('visible')) {
+                            card.classList.add('visible');
+                            console.log(`Card ${index + 1} revealed at progress: ${scrollProgress.toFixed(2)}`);
+                        }
+                    } else {
+                        card.classList.remove('visible');
+                    }
+                });
+            }
+
+            // Update on scroll
+            window.addEventListener('scroll', updateServicesCards);
+            // Initial check
+            updateServicesCards();
+
+            // --- BOOKING SYSTEM ---
+            const bookingModal = document.getElementById('bookingModal');
+            const openBookingBtn = document.getElementById('openBooking');
+            const closeBookingBtn = document.getElementById('closeBooking');
+            const prevStepBtn = document.getElementById('prevStep');
+            const nextStepBtn = document.getElementById('nextStep');
+
+            let currentStep = 1;
+            let bookingData = {
+                month: null,
+                day: null,
+                name: null,
+                email: null,
+                phone: null,
+                notes: null,
+                time: null
+            };
+
+            // Month names in Italian
+            const monthNames = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
+                'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+
+            const dayNames = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];
+
+            // Time slots: 9:00-12:30 and 16:00-18:30 in 30min intervals
+            const morningSlots = ['09:00-09:30', '09:30-10:00', '10:00-10:30', '10:30-11:00',
+                '11:00-11:30', '11:30-12:00', '12:00-12:30'];
+            const afternoonSlots = ['16:00-16:30', '16:30-17:00', '17:00-17:30', '17:30-18:00', '18:00-18:30'];
+            const allSlots = [...morningSlots, ...afternoonSlots];
+
+            // Open modal
+            openBookingBtn.addEventListener('click', () => {
+                bookingModal.classList.add('active');
+                initializeBooking();
+            });
+
+            // Close modal
+            closeBookingBtn.addEventListener('click', closeModal);
+            bookingModal.addEventListener('click', (e) => {
+                if (e.target === bookingModal) closeModal();
+            });
+
+            function closeModal() {
+                bookingModal.classList.remove('active');
+                resetBooking();
+            }
+
+            function resetBooking() {
+                currentStep = 1;
+                bookingData = { month: null, day: null, time: null };
+                showStep(1);
+                updateNavigation();
+            }
+
+            function initializeBooking() {
+                generateMonths();
+                showStep(1);
+                updateNavigation();
+            }
+
+            // Generate months (next 6 months)
+            function generateMonths() {
+                const monthGrid = document.getElementById('monthGrid');
+                monthGrid.innerHTML = '';
+
+                const today = new Date();
+                for (let i = 0; i < 6; i++) {
+                    const date = new Date(today.getFullYear(), today.getMonth() + i, 1);
+                    const monthBtn = document.createElement('button');
+                    monthBtn.className = 'month-btn';
+                    monthBtn.textContent = `${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+                    monthBtn.dataset.month = date.getMonth();
+                    monthBtn.dataset.year = date.getFullYear();
+
+                    monthBtn.addEventListener('click', () => {
+                        document.querySelectorAll('.month-btn').forEach(b => b.classList.remove('selected'));
+                        monthBtn.classList.add('selected');
+                        bookingData.month = { month: date.getMonth(), year: date.getFullYear() };
+                        nextStepBtn.disabled = false;
+                    });
+
+                    monthGrid.appendChild(monthBtn);
+                }
+            }
+
+            // Generate days for selected month
+            function generateDays() {
+                const dayGrid = document.getElementById('dayGrid');
+                dayGrid.innerHTML = '';
+
+                if (!bookingData.month) return;
+
+                const { month, year } = bookingData.month;
+                const daysInMonth = new Date(year, month + 1, 0).getDate();
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const date = new Date(year, month, day);
+                    const dayOfWeek = date.getDay();
+                    const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5; // Mon-Fri
+                    const isPast = date < today;
+
+                    const dayBtn = document.createElement('button');
+                    dayBtn.className = 'day-btn';
+                    if (!isWeekday || isPast) {
+                        dayBtn.classList.add('disabled');
+                        dayBtn.disabled = true;
+                    }
+
+                    dayBtn.innerHTML = `
+                        <span class="day-number">${day}</span>
+                        <span class="day-name">${dayNames[dayOfWeek]}</span>
+                    `;
+
+                    if (isWeekday && !isPast) {
+                        dayBtn.addEventListener('click', () => {
+                            document.querySelectorAll('.day-btn').forEach(b => b.classList.remove('selected'));
+                            dayBtn.classList.add('selected');
+                            bookingData.day = { day, month, year, dayOfWeek };
+                            nextStepBtn.disabled = false;
+                        });
+                    }
+
+                    dayGrid.appendChild(dayBtn);
+                }
+            }
+
+            // Generate time slots
+            function generateTimeSlots() {
+                const timeSlotsContainer = document.getElementById('timeSlots');
+                timeSlotsContainer.innerHTML = '';
+
+                allSlots.forEach(slot => {
+                    const timeBtn = document.createElement('button');
+                    timeBtn.className = 'time-slot';
+                    timeBtn.textContent = slot;
+
+                    timeBtn.addEventListener('click', () => {
+                        document.querySelectorAll('.time-slot').forEach(b => b.classList.remove('selected'));
+                        timeBtn.classList.add('selected');
+                        bookingData.time = slot;
+                        nextStepBtn.disabled = false;
+                    });
+
+                    timeSlotsContainer.appendChild(timeBtn);
+                });
+            }
+
+            // Show confirmation
+            function showConfirmation() {
+                const summary = document.getElementById('bookingSummary');
+                const { month, year } = bookingData.month;
+                const { day } = bookingData.day;
+                const monthName = monthNames[month];
+
+                summary.innerHTML = `
+                    <p><strong>Nome:</strong> ${bookingData.name}</p>
+                    <p><strong>Email:</strong> ${bookingData.email}</p>
+                    <p><strong>Data:</strong> ${day} ${monthName} ${year}</p>
+                    <p><strong>Orario:</strong> ${bookingData.time}</p>
+                `;
+            }
+
+            // Validate user info step
+            function validateUserInfo() {
+                const name = document.getElementById('userName').value.trim();
+                const email = document.getElementById('userEmail').value.trim();
+
+                if (!name || !email) return false;
+
+                // Simple email validation
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+
+            // Collect user info
+            function collectUserInfo() {
+                bookingData.name = document.getElementById('userName').value.trim();
+                bookingData.email = document.getElementById('userEmail').value.trim();
+                bookingData.phone = document.getElementById('userPhone').value.trim();
+                bookingData.notes = document.getElementById('userNotes').value.trim();
+            }
+
+
+            // Navigation
+            function showStep(step) {
+                document.querySelectorAll('.booking-step').forEach(s => s.classList.remove('active'));
+                document.getElementById(`step${step}`).classList.add('active');
+                currentStep = step;
+
+                // Generate content for each step
+                if (step === 2) generateDays();
+                if (step === 4) generateTimeSlots();
+                if (step === 5) showConfirmation();
+
+                updateNavigation();
+            }
+
+            function updateNavigation() {
+                // Show/hide prev button
+                prevStepBtn.style.display = currentStep > 1 && currentStep < 5 ? 'block' : 'none';
+
+                // Update next button
+                if (currentStep === 5) {
+                    nextStepBtn.textContent = 'Chiudi';
+                    nextStepBtn.disabled = false;
+                } else if (currentStep === 4) {
+                    nextStepBtn.textContent = 'Conferma Prenotazione';
+                    nextStepBtn.disabled = !bookingData.time;
+                } else {
+                    nextStepBtn.textContent = 'Avanti';
+                    // Disable if no selection made
+                    let hasSelection = false;
+                    if (currentStep === 1) hasSelection = bookingData.month;
+                    if (currentStep === 2) hasSelection = bookingData.day;
+                    if (currentStep === 3) hasSelection = validateUserInfo();
+
+                    nextStepBtn.disabled = !hasSelection;
+                }
+            }
+
+            // Add input listeners for step 3 validation
+            ['userName', 'userEmail'].forEach(id => {
+                const input = document.getElementById(id);
+                if (input) {
+                    input.addEventListener('input', () => {
+                        if (currentStep === 3) updateNavigation();
+                    });
+                }
+            });
+
+            // Button handlers
+            nextStepBtn.addEventListener('click', () => {
+                if (currentStep === 3) {
+                    // Collect user info before moving to next step
+                    collectUserInfo();
+                }
+
+                if (currentStep < 5) {
+                    showStep(currentStep + 1);
+                } else {
+                    closeModal();
+                }
+            });
+
+            prevStepBtn.addEventListener('click', () => {
+                if (currentStep > 1) {
+                    showStep(currentStep - 1);
+                }
+            });
+        });
+    </script>
+
+    <!-- LIGHTBOX HTML MOVED TO BOTTOM of BODY -->
+    <div id="lightbox" class="lightbox-overlay">
+        <button class="lightbox-close">&times;</button>
+        <button class="lightbox-prev">&#10094;</button>
+        <div class="lightbox-content">
+            <img src="" alt="Gallery Image" id="lightbox-img">
+            <p class="lightbox-desc"
+                style="color: white; margin-top: 10px; font-family: inherit; font-size: 1.1em; text-align: center; max-width: 80%;">
+            </p>
+            <div class="lightbox-counter">1 / 1</div>
+        </div>
+        <button class="lightbox-next">&#10095;</button>
+    </div>
+</body>
+
+</html>
+
+
+
 </body>
 
 </html>
